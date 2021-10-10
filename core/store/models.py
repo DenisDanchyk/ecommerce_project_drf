@@ -107,8 +107,12 @@ class ClothesProduct(Product):
 class BagProduct(Product):
     """ Bag product model """
 
-    size = models.CharField(
-        max_length=155, verbose_name="Розмір", default='Один розмір')
+    BAG_SIZE = [
+        ('One size', 'one size'),
+    ]
+
+    available_size = MultiSelectField(
+        max_length=12, max_choices=5, choices=BAG_SIZE, verbose_name="Розміра в наявності")
     category = models.ForeignKey(
         Category, related_name='bag_product', on_delete=models.CASCADE, verbose_name="Категорія")
 
@@ -120,8 +124,12 @@ class BagProduct(Product):
 class AccessoriesProduct(Product):
     """ Accessories product model """
 
-    size = models.CharField(
-        max_length=155, verbose_name="Розмір", default='Один розмір')
+    ACCESSORIES_SIZE = [
+        ('One size', 'one size'),
+    ]
+
+    available_size = MultiSelectField(
+        max_length=12, max_choices=5, choices=ACCESSORIES_SIZE, verbose_name="Розміра в наявності")
     category = models.ForeignKey(
         Category, related_name='accessories_product', on_delete=models.CASCADE, verbose_name="Категорія")
 
