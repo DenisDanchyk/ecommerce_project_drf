@@ -7,6 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api_auth/', include('rest_framework.urls')),
     path('api/store/', include('store.urls')),
+    path('api/account/', include('accounts.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
