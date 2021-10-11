@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     
     'rest_framework',
+    'phonenumber_field',
+    'cities_light',
 ]
 
 MIDDLEWARE = [
@@ -41,6 +43,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Custom user model
+AUTH_USER_MODEL = 'accounts.User'
 
 ROOT_URLCONF = 'core.urls'
 
