@@ -8,9 +8,10 @@ urlpatterns = [
     path('api_auth/', include('rest_framework.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    
+
     path('api/store/', include('store.urls')),
-    path('api/account/', include('accounts.urls'))
+    path('api/account/', include('accounts.urls')),
+    path('api/cart/', include('cart.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
