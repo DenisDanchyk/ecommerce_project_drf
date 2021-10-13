@@ -1,4 +1,3 @@
-from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -17,9 +16,14 @@ class UserPersonalInformation(APIView):
         serializer = UserPersonalInformationSerializer(user)
         return Response(serializer.data)
 
-
+ 
 class EditPersonalInformation(APIView):
     """ Edit user personal information """
+
+    def get(self, request):
+        user = User.objects.get(email=request.user)
+        serializer = EditPersonalInformationSerializer(user)
+        return Response(serializer.data)
 
     def put(self, request):
         user = User.objects.get(email=request.user)
