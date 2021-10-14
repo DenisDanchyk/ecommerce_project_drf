@@ -130,7 +130,7 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.AllowAny',
     ),
     'PAGE_SIZE': 10,
@@ -141,9 +141,6 @@ REST_FRAMEWORK = {
         'rest_framework_json_api.pagination.PageNumberPagination',
 }
 
-SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
-}
 
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=2),
@@ -166,5 +163,5 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserRegistrationSerializer',
     }
-    
+
 }

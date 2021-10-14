@@ -20,11 +20,6 @@ class UserPersonalInformation(APIView):
 class EditPersonalInformation(APIView):
     """ Edit user personal information """
 
-    def get(self, request):
-        user = User.objects.get(email=request.user)
-        serializer = EditPersonalInformationSerializer(user)
-        return Response(serializer.data)
-
     def put(self, request):
         user = User.objects.get(email=request.user)
 
