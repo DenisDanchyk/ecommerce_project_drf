@@ -51,7 +51,8 @@ class Order(models.Model):
     first_name = models.CharField(max_length=255,  verbose_name="Ім'я")
     last_name = models.CharField(max_length=255,  verbose_name="Фамілія")
     phone = models.CharField(max_length=255,  verbose_name="Номер телефону")
-    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name="Місто")
+    city = models.ForeignKey(
+        City, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Місто")
     post_office = models.CharField(
         max_length=255, verbose_name="Вдділення пошти")
     email = models.EmailField()
